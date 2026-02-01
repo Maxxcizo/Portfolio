@@ -1,9 +1,25 @@
-import { Github, Linkedin, Twitter, Heart } from "lucide-react";
+import { Github, Linkedin, CodeXml, Heart } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  {
+    icon: Github,
+    href: "https://github.com/Maxxcizo",
+    label: "GitHub",
+    external: true,
+  },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/in/isaac-chavez-mares/",
+    label: "LinkedIn",
+    external: true,
+  },
+  {
+    icon: CodeXml,
+    href: "https://leetcode.com/u/WskonAEeqC/",
+    label: "LeetCode",
+    external: true,
+  },
+  
 ];
 
 const footerLinks = [
@@ -23,10 +39,10 @@ export const Footer = () => {
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
             <a href="#" className="text-xl font-bold tracking-tight">
-              PM<span className="text-primary">.</span>
+              IC<span className="text-primary">.</span>
             </a>
             <p className="text-sm text-muted-foreground mt-2">
-              © {currentYear} Pedro Machado. All rights reserved.
+              © {currentYear} Isaac Chavez. All rights reserved.
             </p>
           </div>
 
@@ -46,14 +62,16 @@ export const Footer = () => {
           {/* Social Links */}
           <div className="flex items-center gap-4">
             {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                aria-label={social.label}
-                className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
-              >
-                <social.icon className="w-5 h-5" />
-              </a>
+            <a
+              key={social.label}
+              href={social.href}
+              aria-label={social.label}
+              target={social.external ? "_blank" : undefined}
+              rel={social.external ? "noopener noreferrer" : undefined}
+              className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
+            >
+              <social.icon className="w-5 h-5" />
+            </a>
             ))}
           </div>
         </div>

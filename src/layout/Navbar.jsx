@@ -54,7 +54,9 @@ export const Navbar = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Button size="sm">Contact Me</Button>
+          <a href="#contact">
+            <Button size="sm">Contact Me</Button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -67,26 +69,26 @@ export const Navbar = () => {
       </nav>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden glass-strong animate-fade-in">
-          <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-            {navLinks.map((link, index) => (
-              <a
-                href={link.href}
-                key={index}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg text-muted-foreground hover:text-foreground py-2"
-              >
-                {link.label}
-              </a>
-            ))}
+    {isMobileMenuOpen && (
+      <div className="md:hidden glass-strong animate-fade-in">
+        <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+          {navLinks.map((link, index) => (
+            <a
+              href={link.href}
+              key={index}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-lg text-muted-foreground hover:text-foreground py-2"
+            >
+              {link.label}
+            </a>
+          ))}
 
-            <Button onClick={() => setIsMobileMenuOpen(false)}>
-              Contact Me
-            </Button>
-          </div>
+          <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+            <Button>Contact Me</Button>
+          </a>
         </div>
-      )}
+      </div>
+    )}
     </header>
   );
 };

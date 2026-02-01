@@ -4,30 +4,37 @@ import {
   ChevronDown,
   Github,
   Linkedin,
-  Twitter,
+  CodeXml,
   Download,
 } from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 
 const skills = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Node.js",
-  "GraphQL",
-  "PostgreSQL",
+  "*React",
+  "*Next.js",
+  "*TypeScript",
+  "*Node.js",
+  "SQL",
+  "Firebase",
   "MongoDB",
-  "Redis",
-  "Docker",
-  "AWS",
+  "JavaScript",
+  "Kotlin",
+  "*AWS",
   "Vercel",
-  "Tailwind CSS",
-  "Prisma",
-  "Jest",
-  "Cypress",
+  "*Tailwind CSS",
+  "C++",
+  "C#",
+  "Python",
   "Figma",
   "Git",
   "GitHub Actions",
+  "Xcode",
+  "Android Studio",
+  "Java",
+  "HTML",
+  "CSS",
+  "Shopify",
+  "SkydropX",
 ];
 
 export const Hero = () => {
@@ -69,7 +76,7 @@ export const Hero = () => {
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                Software Engineer • React Specialist
+                Software Engineer • Open to Work
               </span>
             </div>
 
@@ -85,20 +92,29 @@ export const Hero = () => {
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
-                Hi, I'm Pedro Machado — a software engineer specializing in
+                Hi, I'm Isaac Chavez — a software engineer specializing in
                 React, Next.js, and TypeScript. I build scalable, performant web
-                applications that users love.
+                applications, that users love.
               </p>
             </div>
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <Button size="lg">
-                Contact Me <ArrowRight className="w-5 h-5" />
-              </Button>
-              <AnimatedBorderButton>
-                <Download className="w-5 h-5" />
-                Download CV
+              <a href="#contact">
+                <Button size="lg">
+                  Contact Me <ArrowRight className="w-5 h-5" />
+                </Button>
+              </a>
+              <AnimatedBorderButton asChild>
+                <a
+                  href="/Isaac_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2"
+                >
+                  <Download className="w-5 h-5" />
+                  <span>View CV</span>
+                </a>
               </AnimatedBorderButton>
             </div>
 
@@ -106,16 +122,34 @@ export const Hero = () => {
             <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
               <span className="text-sm text-muted-foreground">Follow me: </span>
               {[
-                { icon: Github, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Twitter, href: "#" },
-              ].map((social, idx) => (
+                {
+                  icon: Github,
+                  href: "https://github.com/Maxxcizo",
+                  label: "GitHub",
+                  external: true,
+                },
+                {
+                  icon: Linkedin,
+                  href: "https://www.linkedin.com/in/isaac-chavez-mares/",
+                  label: "LinkedIn",
+                  external: true,
+                },
+                {
+                  icon: CodeXml,
+                  href: "https://leetcode.com/u/WskonAEeqC/",
+                  label: "LeetCode",
+                  external: true,
+                },
+              ].map((social) => (
                 <a
-                  key={idx}
+                  key={social.label}
                   href={social.href}
-                  className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                  aria-label={social.label}
+                  target={social.external ? "_blank" : undefined}
+                  rel={social.external ? "noopener noreferrer" : undefined}
+                  className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all"
                 >
-                  {<social.icon className="w-5 h-5" />}
+                  <social.icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
@@ -132,8 +166,8 @@ export const Hero = () => {
               />
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
-                  src="/profile-photo.jpg"
-                  alt="Pedro Machado"
+                  src="/profile-photo.png"
+                  alt="Isaac Chavez"
                   className="w-full aspect-[4/5] object-cover rounded-2xl"
                 />
 
@@ -148,7 +182,7 @@ export const Hero = () => {
                 </div>
                 {/* Stats Badge */}
                 <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
-                  <div className="text-2xl font-bold text-primary">5+</div>
+                  <div className="text-2xl font-bold text-primary">1+</div>
                   <div className="text-xs text-muted-foreground">
                     Years Exp.
                   </div>
